@@ -47,8 +47,13 @@ var people []person
 	}
 
 	func DeletePersonEndpointPersonEndpoint(w http.ResponseWriter, req *http.Request) {
-
+     params := mux.vars(req)
+	 for index, item := range people {
+	if item.ID == params["id"] {
+	people = append(people[:index], people[index + 1:]...)
 	}
+	}
+    }
 
 	router.HandleFunc("/people", GetpeopleEndpoint) .Methods("GET")
 
