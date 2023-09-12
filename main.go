@@ -51,8 +51,10 @@ var people []person
 	 for index, item := range people {
 	if item.ID == params["id"] {
 	people = append(people[:index], people[index + 1:]...)
+	return
 	}
 	}
+	json.NewDecoder(w).Encode(people)
     }
 
 	router.HandleFunc("/people", GetpeopleEndpoint) .Methods("GET")
