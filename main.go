@@ -10,13 +10,20 @@ import (
 
 type person struct{
 	ID string `json:"id,omitemty"`
-	FirstName string `json:"id,omitemty"`
-	ID string `json:"id,omitemty"`
-	ID string `json:"id,omitemty"`
+	FirstName string `json:"firstname,omitemty"`
+	LastName string `json:"lastname,omitemty"`
+	Address *Address `json:"address,omitemty"`
 }
 
-    func GetpeopleEndpoint(w http.ResponseWriter, req *http.Request) {
+type Andress struct{
+	City string `json:"City,omitempy"`
+	State string `json:"State,omitempy"`
+}
 
+var people []person
+
+    func GetpeopleEndpoint(w http.ResponseWriter, req *http.Request) {
+    json.NewEncoder(w).Encode(people)
 	}
 	
 	func GetPersoneEndpoint(w http.ResponseWriter, req *http.Request) {
@@ -35,6 +42,10 @@ type person struct{
 
     func main()  {
 	router := mux.NewRouter()
+
+	people = append(people, person{ID: "1", FirstName: "Ryan", lastname: "Ray", Address:
+	&Address{City: "Dubling", State: "California"}})
+	people = append(people, person{ID: "2", FirstName: "joe", lastname: "McMillan"})
 	
 	// endpoints
 	router.HandleFunc("/people", GetpeopleEndpoint) .Methods("GET")
