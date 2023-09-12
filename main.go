@@ -54,7 +54,7 @@ var people []person
 	return
 	}
 	}
-	json.NewDecoder(w).Encode(people)
+	json.NewEncoder(w).Encode(people)
     }
 
 	router.HandleFunc("/people", GetpeopleEndpoint) .Methods("GET")
