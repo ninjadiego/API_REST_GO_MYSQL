@@ -1,0 +1,44 @@
+# ==============================================
+# .gitignore para proyectos Go
+# ==============================================
+
+# Binarios y ejecutables compilados
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+main
+bin/
+build/
+dist/
+
+# Archivos de test
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Archivos de entorno (contienen credenciales)
+.env
+.env.local
+.env.*.local
+
+# Dependencias (si usan vendor)
+/vendor/
+
+# IDEs y editores
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+tmp/
+temp/
